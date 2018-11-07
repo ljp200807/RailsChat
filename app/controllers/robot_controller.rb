@@ -11,7 +11,7 @@ class RobotController < ApplicationController
     # 这里提交post请求
     url = URI('http://openapi.tuling123.com/openapi/api/v2')
 
-    # 这里设计请求内容
+    # 这里设计请求内容，一开始是写成map，然后调用to_json转化为json字符串
     data = {
         "reqType": 0,
         "perception": {
