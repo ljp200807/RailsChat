@@ -18,3 +18,4 @@
 //= require sync
 //= require select2.min
 //= require toastr.min
+//= require robot
