@@ -35,4 +35,39 @@ class RobotController < ApplicationController
 
     render json: {output_string: result}
   end
+
+  # 这里写一个函数来传入一个评价信息
+  def store_evaluation
+    user_score = params[:user_score]
+    chat_time = params[:chat_time]
+    correspond_time = params[:correspond_time]
+
+    puts user_score, chat_time, correspond_time
+
+    #========下面的内容将存储用户的评价信息============
+    # 这里注意要先把数据取出来，和新的值算个平均，然后再存回去
+
+
+
+    #========上面的内容将存储用户的评价信息============
+
+    # 根据上面取的结果来给浏览器返回值，1代表成功，0代表失败。
+    render json: {return_code: 1}
+  end
+
+  # 这里写一个函数来获取各方面的来获取用户平均分数、平均交流时间、平均响应时间
+  def get_evaluation
+    user_score = -1
+    chat_time = -1
+    correspond_time = -1
+
+    #==============下面读数据库来获取三个字段，并且填充到上面的几个变量中===============
+
+
+
+    #=============上面读数据库来获取三个字段，并且填充到上面的几个变量中===============
+
+    render json: {user_score: user_score, chat_time: chat_time, correspond_time: correspond_time}
+  end
 end
+

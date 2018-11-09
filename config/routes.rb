@@ -94,7 +94,8 @@ Rails.application.routes.draw do
   delete 'sessions/logout' => 'sessions#destroy'
 
   # 这里添加一个新的请求，解决机器人聊天的问题
-  match 'robot/chat_with_robot', to: 'robot#chat_with_robot', via: [:get]
-
-
+  # match 'robot/chat_with_robot', to: 'robot#chat_with_robot', via: [:get]
+  get 'robot/chat_with_robot'
+  get 'robot/store_evaluation'
+  get 'robot/get_evaluation'
 end

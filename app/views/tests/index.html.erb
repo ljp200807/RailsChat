@@ -5,9 +5,32 @@
 <p>向机器人发送"你好"这条信息，并输出返回</p>
 <br/>
 <script>
-  $("#robot").click(function (e) {
-      alert(chat_with_robot("你好"));
-  });
+    $("#robot").click(function (e) {
+        alert(chat_with_robot("你好"));
+    });
+</script>
+
+<br/>
+<button id="evaluation">存储评价信息</button>
+<p>将系统评价相关的信息传给服务器</p>
+<br/>
+<script>
+    $("#evaluation").click(function (e) {
+        send_chat_quality(1, 1, 1);
+    });
+</script>
+
+<br/>
+<button id="get_evaluation">获取评价信息</button>
+<p>获取评价信息map</p>
+<br/>
+<script>
+    $("#get_evaluation").click(function (e) {
+        var result_map = get_chat_quality();
+        alert(result_map.user_score);
+        alert(result_map.chat_time);
+        alert(result_map.correspond_time);
+    });
 </script>
 
 
