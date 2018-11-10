@@ -16,7 +16,9 @@
 <br/>
 <script>
     $("#evaluation").click(function (e) {
-        send_chat_quality(1, 1, 1);
+        var return_code = send_chat_quality(1, 1, 1, 1);
+
+        alert(return_code)
     });
 </script>
 
@@ -26,7 +28,7 @@
 <br/>
 <script>
     $("#get_evaluation").click(function (e) {
-        var result_map = get_chat_quality();
+        var result_map = get_chat_quality(1);
         alert(result_map.user_score);
         alert(result_map.chat_time);
         alert(result_map.correspond_time);

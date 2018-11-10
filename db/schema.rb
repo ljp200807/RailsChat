@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20181111014153) do
   create_table "robots", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "user_score"
-    t.datetime "chat_time"
-    t.datetime "correspond_time"
-    t.integer  "average_socre"
+    t.integer  "chat_time"
+    t.integer  "correspond_time"
+    t.integer  "average_score"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

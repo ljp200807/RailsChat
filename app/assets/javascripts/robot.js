@@ -21,7 +21,7 @@ function chat_with_robot(input_string) {
 }
 
 //这里设计三个函数，分别传入用户对于系统的评分、会话时长与此次聊天的平均相应时间
-function send_chat_quality(user_score, chat_time, correspond_time) {
+function send_chat_quality(user_id, user_score, chat_time, correspond_time) {
     // alert("点击了");
     var url = "robot/store_evaluation";
 
@@ -33,6 +33,7 @@ function send_chat_quality(user_score, chat_time, correspond_time) {
         method: "GET",
         async: false,
         data: {
+            user_id: user_id,
             user_score: user_score,
             chat_time: chat_time,
             correspond_time: correspond_time
@@ -55,7 +56,7 @@ alert(result_map.user_score);
 alert(result_map.chat_time);
 alert(result_map.correspond_time);
  */
-function get_chat_quality() {
+function get_chat_quality(user_id) {
     // alert("点击了");
     //这里是返回的对象
     var result_map = null;
@@ -66,6 +67,10 @@ function get_chat_quality() {
         url: url,
         method: "GET",
         async: false,
+
+        data: {
+            user_id: user_id,
+        },
 
         success: function (response) {
             result_map = response;

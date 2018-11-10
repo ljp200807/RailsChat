@@ -3,9 +3,9 @@ class CreateRobots < ActiveRecord::Migration
     create_table :robots do |t|
       t.integer :user_id
       t.integer :user_score
-      t.datetime :chat_time
-      t.datetime :correspond_time
-      t.integer :average_socre
+      t.integer :chat_time
+      t.integer :correspond_time
+      t.integer :average_score
 
       t.timestamps null: false
     end
