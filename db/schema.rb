@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228114534) do
+ActiveRecord::Schema.define(version: 20181111014153) do
 
   create_table "chats", force: :cascade do |t|
     t.string   "name"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20170228114534) do
 
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "robots", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "user_score"
+    t.datetime "chat_time"
+    t.datetime "correspond_time"
+    t.integer  "average_socre"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

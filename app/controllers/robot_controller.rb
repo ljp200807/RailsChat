@@ -43,25 +43,42 @@ class RobotController < ApplicationController
     correspond_time = params[:correspond_time]
 
     puts user_score, chat_time, correspond_time
+    int sum=0
+    Robot.new(:user_id => user_id,:user_score => user_score,:chat_time => chat_time,:correspond_time => correspond_time).save
+    list = Robot.where(user_id=1)
+    for i in 0..list.size-1
+        user_score +=list[i].user_score
+    end
+    user_score = user_score/list.size
+    for i in 0..list.size-1
+        list[i].average_score=user_score
+        list[i].chat_time=chat_time
+        list[i].correspond_time=correspond_time
+        if  list[i].save
+            sum++
+        end
+    end
+        #========上面的内容将存储用户的评价信息============
+        # 根据上面取的结果来给浏览器返回值，1代表成功，0代表失败。
+    if sum==list.size
+        render json: {return_code: 1}
 
-    #========下面的内容将存储用户的评价信息============
-    # 这里注意要先把数据取出来，和新的值算个平均，然后再存回去
+    else
+        render json: {return_code: 0}
 
-
-
-    #========上面的内容将存储用户的评价信息============
-
-    # 根据上面取的结果来给浏览器返回值，1代表成功，0代表失败。
-    render json: {return_code: 1}
+    end
   end
 
   # 这里写一个函数来获取各方面的来获取用户平均分数、平均交流时间、平均响应时间
   def get_evaluation
-    user_score = -1
-    chat_time = -1
-    correspond_time = -1
+    
 
     #==============下面读数据库来获取三个字段，并且填充到上面的几个变量中===============
+    @robot = Robot.find_by_user_id(user_id)
+    user_score = @robot.average_score
+    chat_time = @robot.chat_time
+    correspond_time = @robot.correspond_time
+
 
 
 
