@@ -30,7 +30,7 @@ function send_chat_quality(user_id, user_score, chat_time, correspond_time) {
 
     $.ajax({
         url: url,
-        method: "GET",
+        method: "POST",
         async: false,
         data: {
             user_id: user_id,
