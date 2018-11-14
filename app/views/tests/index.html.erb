@@ -35,6 +35,17 @@
     });
 </script>
 
+<br/>
+<button id="add_new_user">添加用户</button>
+<p>添加一个叫做zhendu的用户，邮箱454858191@qq.com,密码123456</p>
+<p>为了避免添加重复元素，可以在项目根目录执行./init_db.sh脚本</p>
+<br/>
+<script>
+  $("#add_new_user").click(function (e) {
+      var return_code = add_new_user("zhendu","454858191@qq.com","123456");
+      alert(return_code);
+  });
+</script>
 
 <br/>
 <p>增加内容</p>

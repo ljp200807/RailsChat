@@ -57,11 +57,16 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+
   resources :users do
     collection do
       get :index_json
     end
   end
+
+
+  # post "users/add_new_user"
+
   resources :salaries
   resources :performances
   resources :announcements
@@ -98,4 +103,7 @@ Rails.application.routes.draw do
   get 'robot/chat_with_robot'
   post 'robot/store_evaluation'
   get 'robot/get_evaluation'
+
+  # 添加用户的请求
+  post 'extend_users/add_new_user'
 end

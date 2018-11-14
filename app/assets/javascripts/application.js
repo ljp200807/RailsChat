@@ -19,3 +19,4 @@
 //= require select2.min
 //= require toastr.min
 //= require robot
+//= require user
