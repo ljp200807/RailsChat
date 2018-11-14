@@ -36,3 +36,83 @@
 </script>
 
 
+<br/>
+<p>增加内容</p>
+<button id="testleft">改变内容左</button>
+<button id="testright">改变内容右</button>
+<div id="test_div">
+
+</div>
+
+<script>
+  $("#testleft").click(function () {
+      // document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
+      //     "<li class=\"mar-btm\">\n" +
+      //     "  <div class=\"media-left\">\n" +
+      //     "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+      //     "  </div>\n" +
+      //     "  <div class=\"media-body pad-hor \">\n" +
+      //     "    <div class=\"speech\">\n" +
+      //     "      <p class=\"media-heading\">robot\n" +
+      //     "        <text class=\"speech-time\">\n" +
+      //     "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+      //     "          2018-11-13 14:48:22\n" +
+      //     "        </text>\n" +
+      //     "      </p>\n" +
+      //     "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">测试</p>\n" +
+      //     "    </div>\n" +
+      //     "  </div>\n" +
+      //     "</li>\n" +
+      //     "<script>\n" +
+      //     "    var $cont = $('.nano-content');\n" +
+      //     "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+      //     "<\/script>";
+      $("#test_div").html("<li class=\"mar-btm\">\n" +
+          "  <div class=\"media-left\">\n" +
+          "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+          "  </div>\n" +
+          "  <div class=\"media-body pad-hor \">\n" +
+          "    <div class=\"speech\">\n" +
+          "      <p class=\"media-heading\">robot\n" +
+          "        <text class=\"speech-time\">\n" +
+          "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+          "          2018-11-13 14:48:22\n" +
+          "        </text>\n" +
+          "      </p>\n" +
+          "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">测试</p>\n" +
+          "    </div>\n" +
+          "  </div>\n" +
+          "</li>\n" +
+          "<script>\n" +
+          "    var $cont = $('.nano-content');\n" +
+          "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+          "<\/script>");
+  });
+
+  $("#testright").click(function () {
+      document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
+          "<li class=\"mar-btm\">\n" +
+          "  <div class=\"media-right\">\n" +
+          "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+          "  </div>\n" +
+          "  <div class=\"media-body pad-hor speech-right\">\n" +
+          "    <div class=\"speech\">\n" +
+          "      <p class=\"media-heading\">我\n" +
+          "        <text class=\"speech-time\">\n" +
+          "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+          "          2018-11-13 14:45:50\n" +
+          "        </text>\n" +
+          "      </p>\n" +
+          "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">123</p>\n" +
+          "    </div>\n" +
+          "  </div>\n" +
+          "</li>\n" +
+          "\n" +
+          "<script>\n" +
+          "    var $cont = $('.nano-content');\n" +
+          "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+          "<\/script>"
+  });
+</script>
+
+

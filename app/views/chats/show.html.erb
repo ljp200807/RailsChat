@@ -43,7 +43,28 @@
           <div class="nano has-scrollbar" style="height:375px">
             <div class="nano-content pad-all" tabindex="0" style="right: -17px;">
               <ul class="list-unstyled media-block">
-
+                <!--这里是新加的起泡代码开始-->
+<!--                <li class="mar-btm">-->
+<!--                  <div class="media-left">-->
+<!--                    <img class="img-sm" src="/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" alt="User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b">-->
+<!--                  </div>-->
+<!--                  <div class="media-body pad-hor ">-->
+<!--                    <div class="speech">-->
+<!--                      <p class="media-heading">robot-->
+<!--                        <text class="speech-time">-->
+<!--                          <i class="fa fa-clock-o fa-fw"></i>-->
+<!--                          2018-11-13 14:48:22-->
+<!--                        </text>-->
+<!--                      </p>-->
+<!--                      <p style="margin-bottom: 5px; margin-top: 5px;">测试</p>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <script>-->
+<!--                    var $cont = $('.nano-content');-->
+<!--                    $cont[0].scrollTop = $cont[0].scrollHeight;-->
+<!--                </script>-->
+                <!--这里是新加的起泡代码结束-->
                 <%= sync partial: 'message_row', collection: Message.by_chat(@chat), refetch: true %>
                 <%= sync_new partial: 'message_row', resource: Message.new, scope: @chat, refetch: true %>
 
