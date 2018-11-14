@@ -12,6 +12,8 @@
       name: "user#{index}",
       email: "user#{index}@test.com",
       password: 'password',
+
+      # 下面的Faker是传入随机值，那个sample也是随机值
       role: Faker::Number.between(1, 4),
       sex: ['male', 'female'].sample,
       phonenumber: Faker::PhoneNumber.phone_number,
