@@ -1,7 +1,7 @@
 //这里定义一个函数，解决机器人聊天的问题
 function chat_with_robot(input_string) {
     // alert("点击了");
-    var url = "robot/chat_with_robot";
+    var url = "/robot/chat_with_robot";
 
     var return_str = "error_happened";
 
@@ -23,7 +23,7 @@ function chat_with_robot(input_string) {
 //这里设计三个函数，分别传入用户对于系统的评分、会话时长与此次聊天的平均相应时间
 function send_chat_quality(user_id, user_score, chat_time, correspond_time) {
     // alert("点击了");
-    var url = "robot/store_evaluation";
+    var url = "/robot/store_evaluation";
 
     //1代表成功传输了内容
     var result = 1;
@@ -61,7 +61,7 @@ function get_chat_quality(user_id) {
     //这里是返回的对象
     var result_map = null;
 
-    var url = "robot/get_evaluation";
+    var url = "/robot/get_evaluation";
 
     $.ajax({
         url: url,
