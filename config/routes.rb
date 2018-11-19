@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'newrbt/chat_with_robot'
+
+  get 'newrbt/get_evaluation'
+
+  get 'newrbt/eva_test'
+
   resources :tests
 
   resources :friendships
@@ -57,16 +63,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-
   resources :users do
     collection do
       get :index_json
     end
   end
-
-
-  # post "users/add_new_user"
-
   resources :salaries
   resources :performances
   resources :announcements
@@ -98,12 +99,11 @@ Rails.application.routes.draw do
   post 'sessions/login' => 'sessions#create'
   delete 'sessions/logout' => 'sessions#destroy'
 
+  get 'signup/sign_up'
+
   # 这里添加一个新的请求，解决机器人聊天的问题
   # match 'robot/chat_with_robot', to: 'robot#chat_with_robot', via: [:get]
   get 'robot/chat_with_robot'
   post 'robot/store_evaluation'
   get 'robot/get_evaluation'
-
-  # 添加用户的请求
-  post 'extend_users/add_new_user'
 end

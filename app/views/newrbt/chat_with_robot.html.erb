@@ -1,0 +1,163 @@
+<div class="panel with-nav-tabs panel-info" id="panel_max">
+  <div class="panel-heading">
+    <ul class="nav nav-tabs">
+      <li class=<%= contact_active %>>
+        <a href="#contact-tab" data-toggle="tab"><i class="fa fa-book"></i></a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <img src="/assets/logo.png" alt="logo" id="logo" />
+    <h2 class="welcome">点击聊天框右上角箭头获取小禅本次服务详细信息</h2>
+  </div>
+</div>
+
+<div class="col-sm-7">
+  <div class="panel panel-default">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-comments fa-fw"></i> Chat
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu slidedown">
+
+            <li>
+              <a rel="nofollow" data-method="delete" href="/chats/2/delete_user?user_id=2">
+                <i class="fa fa-times"></i> 退出聊天室
+              </a>                </li>
+            <li><i class="fa fa-times">
+              <%= link_to '获取本次服务评分', {:controller => 'newrbt', :action => 'get_evaluation'} %>
+            </i></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <!--Widget body-->
+      <div id="demo-chat-body" class="collapse in">
+        <div class="nano has-scrollbar" style="height:375px">
+		
+		<li class="mar-btm">
+  <div class="media-left">
+    <img class="img-sm" src="/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png" alt="User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b">
+  </div>
+  <div class="media-body pad-hor ">
+    <div class="speech">
+      <p class="media-heading">user1
+        <text class="speech-time">
+          <i class="fa fa-clock-o fa-fw"></i>
+          2018-11-13 09:08:01
+        </text>
+      </p>
+      <p style="margin-bottom: 5px; margin-top: 5px;">
+	<div id = "message_left" type = "textleft">我是小禅，你好！</div>
+</p>
+    </div>
+  </div>
+</li>
+
+          <div id = "chat_div">
+            <div id="test_div">
+            </div >
+          </div>
+
+        </div>
+      </div>
+    </div>
+    #ceshi
+    <div class="panel-footer">
+      <form class="new_message" id="new_message" action="/messages" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
+        <div class="input-group">
+          <input class="form-control input-sm" placeholder="Type your message here..." type="text" name="message[body]" id="message_body">
+          <span class="input-group-btn"> <input type="submit" id="testright" value="发送" class="btn btn-warning btn-sm"> </span>
+          <input type="hidden" name="chat_room" id="chat_room" value="2">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+    $("#testright").click(function () {
+ 	var text = $('input:text').val();           // Get value of text input
+        document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
+            "<li class=\"mar-btm\">\n" +
+            "  <div class=\"robot_right\">\n" +
+            "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+            "  </div>\n" +
+            "  <div class=\"media-body pad-hor speech-right\">\n" +
+            "    <div class=\"speech\">\n" +
+            "      <p class=\"media-heading\">我\n" +
+            "        <text class=\"speech-time\">\n" +
+            "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+            "          2018-11-13 14:45:50\n" +
+            "        </text>\n" +
+            "      </p>\n" +
+            "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">"+text+"</p>\n" +
+            "    </div>\n" +
+            "  </div>\n" +
+            "</li>\n" +
+            "\n" +
+            "<script>\n" +
+            "    var $cont = $('.nano-content');\n" +
+            "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+            "<\/script>"
+    });
+</script>
+
+<script>
+$("#testright").click(function () {
+    
+var text = $('input:text').val();           // Get value of text input
+var return_str;
+var url;
+var input_string = text;
+//这里定义一个函数，解决机器人聊天的问题
+function chat_with_robot(input_string) {
+    // alert("点击了");
+     url = "robot/chat_with_robot";
+     return_str = "error_happened";
+
+    $.ajax({
+        url: url,
+        method: "get",
+        async: false,
+        data: {
+            input_string: input_string,
+        },
+        success: function (response) {
+            return_str = response.output_string;
+        }
+    });
+
+    return return_str;
+}
+var new_message_left;
+new_message_left = return_str;
+
+
+    document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
+        "<li class=\"mar-btm\">\n" +
+        "  <div class=\"media-left\">\n" +
+        "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+        "  </div>\n" +
+        "  <div class=\"media-body pad-hor \">\n" +
+        "    <div class=\"speech\">\n" +
+        "      <p class=\"media-heading\">robot\n" +
+        "        <text class=\"speech-time\">\n" +
+        "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+        "          2018-11-13 14:48:22\n" +
+        "        </text>\n" +
+        "      </p>\n" +
+        "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">"+new_message_left+"</p>\n" +
+        "    </div>\n" +
+        "  </div>\n" +
+        "</li>\n";
+});
+
+</script>
