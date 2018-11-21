@@ -13,22 +13,18 @@
     <div class="tab-content">
       <div class="tab-pane fade in <%= contact_active %>" id="contact-tab">
         <ul class="list-group">
-
-          <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
-
-            <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= 20 %>" id="tab-contact-default">
+	<button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= 20 %>" id="tab-contact-default">
               <%= image_tag "user-icon.png", class: "img-sm" %>
               <div class="text-muted">
                 robot
               </div>
             </button>
-            <div id="user-<%= 20 %>" class="collapse">
+	    <div id="user-<%= 20 %>" class="collapse">
                 <%= hidden_field_tag :users, [20] %>
 		<div name="button" type="submit" class="btn btn-success btn-block" style="border-radius: 0;">
-                <%= link_to '和小禅聊天', {:controller => 'newrbt', :action => 'chat_with_robot'} %>
+                <%= link_to '和小禅聊天', {:controller => 'robot_chat', :action => 'chat_with_robot2'} %>
 		</div>
             </div>
-          </li>
 
           <% @friends.each do |user| %>
               <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">

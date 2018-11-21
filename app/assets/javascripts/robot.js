@@ -1,32 +1,29 @@
-//var return_str;
-//var url;
-//var input_string = text;
 //这里定义一个函数，解决机器人聊天的问题
-//function chat_with_robot(input_string) {
+function chat_with_robot(input_string) {
     // alert("点击了");
-//     url = "robot/chat_with_robot";
-//     return_str = "error_happened";
-//    $.ajax({
- //       url: url,
-//        method: "get",
-//        async: false,
-//        data: {
-//            input_string: input_string,
-//        },
-//        success: function (response) {
-//            return_str = response.output_string;
-//        }
-//    });
-//
-//    return return_str;
-//}
-//var new_message_left;
-//new_message_left = text;
+    var url = "/robot/chat_with_robot";
+
+    var return_str = "error_happened";
+
+    $.ajax({
+        url: url,
+        method: "get",
+        async: false,
+        data: {
+            input_string: input_string,
+        },
+        success: function (response) {
+            return_str = response.output_string;
+        }
+    });
+
+    return return_str;
+}
 
 //这里设计三个函数，分别传入用户对于系统的评分、会话时长与此次聊天的平均相应时间
 function send_chat_quality(user_id, user_score, chat_time, correspond_time) {
     // alert("点击了");
-    var url = "robot/store_evaluation";
+    var url = "/robot/store_evaluation";
 
     //1代表成功传输了内容
     var result = 1;
@@ -50,9 +47,7 @@ function send_chat_quality(user_id, user_score, chat_time, correspond_time) {
     //如果没有任何问题就返回1
     return result;
 }
-//举例给对应的指标赋值
-var elnew_message = document.getElementById('server_number');
-elnew_message.textContent = '12';
+
 //这里获取用户平均分数，平均交流时间，平均响应时间构成的对象，使用点操作符调用
 /*
 调用举例：
@@ -66,7 +61,7 @@ function get_chat_quality(user_id) {
     //这里是返回的对象
     var result_map = null;
 
-    var url = "robot/get_evaluation";
+    var url = "/robot/get_evaluation";
 
     $.ajax({
         url: url,
@@ -85,6 +80,3 @@ function get_chat_quality(user_id) {
     //返回结果
     return result_map;
 }
-
-
-

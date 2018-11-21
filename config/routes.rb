@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'newrbt/chat_with_robot'
+  get 'robot_chat/chat_with_robot2'
 
-  get 'newrbt/get_evaluation'
-
-  get 'newrbt/eva_test'
-
+  get 'robot_chat/get_evaluation2'
+  get 'robot_chat/test_eva2'
+  post 'robot_chat/test_eva2'
+  
   resources :tests
-
   resources :friendships
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -63,11 +62,16 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+
   resources :users do
     collection do
       get :index_json
     end
   end
+
+
+  # post "users/add_new_user"
+
   resources :salaries
   resources :performances
   resources :announcements
@@ -98,12 +102,15 @@ Rails.application.routes.draw do
   get 'sessions/login' => 'sessions#new'
   post 'sessions/login' => 'sessions#create'
   delete 'sessions/logout' => 'sessions#destroy'
-
-  get 'signup/sign_up'
-
+  get 'sessions/signup' => 'sessions#new'
+  post 'sessions/signup' => 'sessions#sign_up'
+ 
   # 这里添加一个新的请求，解决机器人聊天的问题
   # match 'robot/chat_with_robot', to: 'robot#chat_with_robot', via: [:get]
   get 'robot/chat_with_robot'
   post 'robot/store_evaluation'
   get 'robot/get_evaluation'
+
+  # 添加用户的请求
+  post 'extend_users/add_new_user'
 end

@@ -24,7 +24,11 @@
     height: 500px;
     float: left;
 }
-
+#panel_wuyong{
+width: 135px;
+height: 500px;
+   float: left;
+}
 #getcontent {
     background-color: #fff;
     border: 3px double #31373f;
