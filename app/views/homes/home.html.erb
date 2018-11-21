@@ -1,5 +1,92 @@
 <div class="container-fluid">
   <header class="jumbotron hero-spacer">
+<!-- 注册模板控制部分 -->
+<div class="modal fade" id="signUP_panel_modal2" role="dialog" style="display: none;">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="padding:35px 50px;">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4><span class="glyphicon glyphicon-lock"></span> 注册</h4>
+      </div>
+      <div class="modal-body" style="padding:40px 50px;">
+		<form role="form" action="/sessions/signup" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ZEJ7sLLH/Jjgi9GCYwvtgHVe7ptI9s+GOWq2j8S++YLmlFBgWcofTx+g3U7WX1+B1m04IgBzUTTtxDSfVTZtCA==">
+
+            <div class="form-group">
+              <label for="session_email">账号密码注册</label>
+              <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input class="form-control" placeholder="输入邮箱" type="email" name="session[email]" id="session_email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input class="form-control" placeholder="输入密码" type="password" name="session[password]"       id="session_password">
+              </div>
+            </div>
+	    <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input class="form-control" placeholder="输入手机号码" type="telnumber" name="session[telnumber]"       id="session_telnumber">
+              </div>
+            </div>
+	    <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                <input class="form-control" placeholder="支付宝账号密码" type="daiding" name="session[daiding]"       id="session_daiding">
+              </div>
+            </div>
+            <button name="button" type="submit" class="btn btn-primary btn-block">
+                <span class="glyphicon glyphicon-off"></span> 注册
+</button>
+</form>
+      </div>
+
+      <div class="modal-footer">
+        <p class="text-center">牢记账号与密码</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // 这个地方是模态框的启动函数
+  $(document).ready(function () {
+    $("#signup_panel").click(function (e) {
+      e.preventDefault();
+      //这里是启动上面的模态框
+      $("#signUP_panel_modal2").modal();
+    });
+  });
+</script>
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+</script>
+
+<!-- 首页部分 -->
     <h1>A Warm Welcome to Rails Chat!</h1>
     <p>一个Rails Chat测试版本</p>
 
@@ -7,8 +94,10 @@
       <% if current_user %>
           hello! <%= current_user.name %>
       <% else %>
-          <!--这个东西启动的模态框-->
-          <a href="#" class="btn btn-primary btn-large" id="login_panel"> Log in!</a>
+          <!--这个东西启动登录的模态框-->
+          <a href="#" class="btn btn-primary btn-large" id="login_panel"> 登 录!</a>
+          <!--这个东西启动注册的模态框-->
+          <a href="#" class="btn btn-primary btn-large" id="signup_panel"> 注 册!</a>
       <% end %>
 
     </p>

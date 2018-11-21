@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <header class="jumbotron hero-spacer">
+    <h1 align="center">小禅本次服务详细数据如下</h1>
+  <div id="getcontent" align="center">
+    <div id="greeting" class="message">感谢本次使用!</div>
+    <table id="gradetable">
+      <tr>
+        <td>小禅服务人数:</td>
+        <td id="userSign"></td>
+      </tr>
+      <tr>
+        <td>小禅响应时长: </td>
+        <td id="tiles"></td>
+      </tr>
+      <tr>
+        <td>小禅响应时长: </td>
+        <td id="subTotal"></td>
+      </tr>
+      <tr>
+        <td>用户名: </td>
+        <td id="usrname"><div id="Uname">1</div></td>
+      </tr>
+      <tr>
+        <td>本次服务总分: </td>
+        <td id="gradeTotal"></td></tr>
+    </table>
+    <%= link_to '返回小禅的神级服务', {:controller => 'robot_chat', :action => 'chat_with_robot2'} %>
+  </div>
+
+<script>
+
+</script>
+
+  </header>
+  <hr>
+  <hr>
+</div>
