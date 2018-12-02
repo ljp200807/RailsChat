@@ -46,7 +46,7 @@ class RobotController < ApplicationController
     puts user_score, chat_time, correspond_time
     sum = 0
     Robot.new(:user_id => user_id, :user_score => user_score, :chat_time => chat_time, :correspond_time => correspond_time).save
-    list = Robot.where(user_id = 1)
+    list = Robot.where(user_id: user_id)
     for i in 0..list.size - 1
       user_score = list[i].user_score + user_score
     end
