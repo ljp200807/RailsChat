@@ -113,4 +113,6 @@ Rails.application.routes.draw do
 
   # 添加用户的请求
   post 'extend_users/add_new_user'
+  # 获取一个用户的信息
+  get 'extend_users/get_user_information'
 end

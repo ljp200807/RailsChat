@@ -11,12 +11,25 @@
 </script>
 
 <br/>
+<button id="user_information">获取用户信息</button>
+<p>获取用户的基本信息，使用用户名user2来获取</p>
+<br/>
+<script>
+    $("#user_information").click(function (e) {
+        var informaion = get_user_information("user2")
+        alert("" + informaion.name + "," + informaion.email
+            + "," + informaion.sex + "," + informaion.phonenumber
+            + "," + informaion.createtime);
+    });
+</script>
+
+<br/>
 <button id="evaluation">存储评价信息</button>
 <p>将系统评价相关的信息传给服务器</p>
 <br/>
 <script>
     $("#evaluation").click(function (e) {
-        var return_code = send_chat_quality(1, 1, 1, 1);
+        var return_code = send_chat_quality(2, 1, 1, 1);
 
         alert(return_code)
     });
@@ -41,10 +54,10 @@
 <p>为了避免添加重复元素，可以在项目根目录执行./init_db.sh脚本</p>
 <br/>
 <script>
-  $("#add_new_user").click(function (e) {
-      var return_code = add_new_user("zhendu","454858191@qq.com","123456");
-      alert(return_code);
-  });
+    $("#add_new_user").click(function (e) {
+        var return_code = add_new_user("zhendu", "454858191@qq.com", "123456");
+        alert(return_code);
+    });
 </script>
 
 <br/>
@@ -56,74 +69,74 @@
 </div>
 
 <script>
-  $("#testleft").click(function () {
-      // document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
-      //     "<li class=\"mar-btm\">\n" +
-      //     "  <div class=\"media-left\">\n" +
-      //     "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
-      //     "  </div>\n" +
-      //     "  <div class=\"media-body pad-hor \">\n" +
-      //     "    <div class=\"speech\">\n" +
-      //     "      <p class=\"media-heading\">robot\n" +
-      //     "        <text class=\"speech-time\">\n" +
-      //     "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
-      //     "          2018-11-13 14:48:22\n" +
-      //     "        </text>\n" +
-      //     "      </p>\n" +
-      //     "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">测试</p>\n" +
-      //     "    </div>\n" +
-      //     "  </div>\n" +
-      //     "</li>\n" +
-      //     "<script>\n" +
-      //     "    var $cont = $('.nano-content');\n" +
-      //     "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
-      //     "<\/script>";
-      $("#test_div").html("<li class=\"mar-btm\">\n" +
-          "  <div class=\"media-left\">\n" +
-          "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
-          "  </div>\n" +
-          "  <div class=\"media-body pad-hor \">\n" +
-          "    <div class=\"speech\">\n" +
-          "      <p class=\"media-heading\">robot\n" +
-          "        <text class=\"speech-time\">\n" +
-          "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
-          "          2018-11-13 14:48:22\n" +
-          "        </text>\n" +
-          "      </p>\n" +
-          "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">测试</p>\n" +
-          "    </div>\n" +
-          "  </div>\n" +
-          "</li>\n" +
-          "<script>\n" +
-          "    var $cont = $('.nano-content');\n" +
-          "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
-          "<\/script>");
-  });
+    $("#testleft").click(function () {
+        // document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
+        //     "<li class=\"mar-btm\">\n" +
+        //     "  <div class=\"media-left\">\n" +
+        //     "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+        //     "  </div>\n" +
+        //     "  <div class=\"media-body pad-hor \">\n" +
+        //     "    <div class=\"speech\">\n" +
+        //     "      <p class=\"media-heading\">robot\n" +
+        //     "        <text class=\"speech-time\">\n" +
+        //     "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+        //     "          2018-11-13 14:48:22\n" +
+        //     "        </text>\n" +
+        //     "      </p>\n" +
+        //     "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">测试</p>\n" +
+        //     "    </div>\n" +
+        //     "  </div>\n" +
+        //     "</li>\n" +
+        //     "<script>\n" +
+        //     "    var $cont = $('.nano-content');\n" +
+        //     "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+        //     "<\/script>";
+        $("#test_div").html("<li class=\"mar-btm\">\n" +
+            "  <div class=\"media-left\">\n" +
+            "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+            "  </div>\n" +
+            "  <div class=\"media-body pad-hor \">\n" +
+            "    <div class=\"speech\">\n" +
+            "      <p class=\"media-heading\">robot\n" +
+            "        <text class=\"speech-time\">\n" +
+            "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+            "          2018-11-13 14:48:22\n" +
+            "        </text>\n" +
+            "      </p>\n" +
+            "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">测试</p>\n" +
+            "    </div>\n" +
+            "  </div>\n" +
+            "</li>\n" +
+            "<script>\n" +
+            "    var $cont = $('.nano-content');\n" +
+            "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+            "<\/script>");
+    });
 
-  $("#testright").click(function () {
-      document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
-          "<li class=\"mar-btm\">\n" +
-          "  <div class=\"media-right\">\n" +
-          "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
-          "  </div>\n" +
-          "  <div class=\"media-body pad-hor speech-right\">\n" +
-          "    <div class=\"speech\">\n" +
-          "      <p class=\"media-heading\">我\n" +
-          "        <text class=\"speech-time\">\n" +
-          "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
-          "          2018-11-13 14:45:50\n" +
-          "        </text>\n" +
-          "      </p>\n" +
-          "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">123</p>\n" +
-          "    </div>\n" +
-          "  </div>\n" +
-          "</li>\n" +
-          "\n" +
-          "<script>\n" +
-          "    var $cont = $('.nano-content');\n" +
-          "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
-          "<\/script>"
-  });
+    $("#testright").click(function () {
+        document.getElementById("test_div").innerHTML = document.getElementById("test_div").innerHTML +
+            "<li class=\"mar-btm\">\n" +
+            "  <div class=\"media-right\">\n" +
+            "    <img class=\"img-sm\" src=\"/assets/user-icon-59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b.png\" alt=\"User icon 59b0a754a338d30a655e86d27205a3c685c0c9b10d77e3a997dcf2bca92c9b1b\">\n" +
+            "  </div>\n" +
+            "  <div class=\"media-body pad-hor speech-right\">\n" +
+            "    <div class=\"speech\">\n" +
+            "      <p class=\"media-heading\">我\n" +
+            "        <text class=\"speech-time\">\n" +
+            "          <i class=\"fa fa-clock-o fa-fw\"></i>\n" +
+            "          2018-11-13 14:45:50\n" +
+            "        </text>\n" +
+            "      </p>\n" +
+            "      <p style=\"margin-bottom: 5px; margin-top: 5px;\">123</p>\n" +
+            "    </div>\n" +
+            "  </div>\n" +
+            "</li>\n" +
+            "\n" +
+            "<script>\n" +
+            "    var $cont = $('.nano-content');\n" +
+            "    $cont[0].scrollTop = $cont[0].scrollHeight;\n" +
+            "<\/script>"
+    });
 </script>
 
 
